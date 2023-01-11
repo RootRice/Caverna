@@ -23,7 +23,8 @@ void Moveable::ApplyForces()
 		const sf::Vector2f force = active_forces[i].Progress();
 		if (force == zero_vector)
 		{
-			active_forces.erase(active_forces.begin() + i);
+			std::swap(active_forces[i], active_forces[active_count-1]);
+			active_forces.pop_back();
 			i--; active_count--;
 		}
 		displacement += force;

@@ -88,7 +88,16 @@ void Character::Input(const sf::Event& e, const sf::Vector2f& mouse_position)
 		}
 	}
 	
-	
+	sf::Vector3f movement_params = Movement(mouse_position);
+	sf::Vector2f movement_direction(movement_params.x, movement_params.y);
+	static_forces[innate_force(movement)].SetForce(movement_direction, movement_params.z);
+
+	if(should_dodge)
+		AddActiveForce(facing_direction, 5.0f);
+}
+
+sf::Vector3f Character::Movement(const sf::Vector2f& mouse_position)
+{
 	sf::Vector2f movement_direction;
 	const sf::Vector2f directions[4]{ sf::Vector2f(0.0f, -1.0f), sf::Vector2f(-1.0f, 0.0f), sf::Vector2f(0.0f, 1.0f), sf::Vector2f(1.0f, 0.0f) };
 	for (int i = 0; i <= keys(num_keys); i++)
@@ -103,11 +112,8 @@ void Character::Input(const sf::Event& e, const sf::Vector2f& mouse_position)
 		facing_direction = movement_direction;
 
 	const float movedir_dot_facedir = Math::v_dot(movement_direction, facing_direction);
-	const float adjusted_speed = Math::lerp(min_speed, max_speed, (movedir_dot_facedir+1)/2);
-	static_forces[innate_force(movement)].SetForce(movement_direction, adjusted_speed);
-
-	if(should_dodge)
-		AddActiveForce(facing_direction, 5.0f);
+	const float adjusted_speed = Math::lerp(min_speed, max_speed, (movedir_dot_facedir + 1) / 2);
+	return sf::Vector3f(movement_direction.x, movement_direction.y, adjusted_speed);
 }
 
 sf::Vector2f ClosestCardinalVector(sf::Vector2f vec)

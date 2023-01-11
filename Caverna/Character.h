@@ -20,16 +20,16 @@ public:
 
 	void Input(const sf::Event& e, const sf::Vector2f& mouse_position) override;
 
+	sf::Sprite sprite; //MAKE THIS PRIVATE AGAIN
 private:
 	float min_speed;
 	float max_speed;
 
-	sf::Sprite sprite;
 	sf::RectangleShape sq;
 	sf::Vector2f facing_direction;
 
 	enum innate_force {movement};
 
-
+	sf::Vector3f Movement(const sf::Vector2f& mouse_position);
 };
 

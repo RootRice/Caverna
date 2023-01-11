@@ -25,6 +25,12 @@
     <Filter Include="Header Files\Interfaces">
       <UniqueIdentifier>{e375bbf3-d710-423a-96b5-dfaaf9e2f465}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Collision">
+      <UniqueIdentifier>{1955cedb-d249-47eb-aad3-d2adddbb3169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Collision">
+      <UniqueIdentifier>{2c33d184-58c1-4550-96f6-beb4698215e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Caverna.cpp">
@@ -57,6 +63,15 @@
     <ClCompile Include="Drawable.cpp">
       <Filter>Source Files\Interfaces</Filter>
     </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollider.cpp">
+      <Filter>Source Files\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h">
@@ -82,6 +97,15 @@
     </ClInclude>
     <ClInclude Include="Drawable.h">
       <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
